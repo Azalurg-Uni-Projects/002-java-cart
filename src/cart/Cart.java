@@ -8,6 +8,8 @@ import src.product.Product;
 public class Cart {
     private Product[] products;
     private Coupon[] coupons;
+    private double cartValue;
+    private double itemsValue;
 
     public Cart(){
         this.products = new Product[0];
@@ -37,4 +39,14 @@ public class Cart {
         coupons[coupons.length-1] = c;
         calculate();
     }
+
+    public void resetCart(){
+        this.products = new Product[0];
+        this.coupons = new Coupon[0];
+    }
+
+    public void setCartValue(double cartValue){
+        this.cartValue = cartValue;
+    }
+
 }

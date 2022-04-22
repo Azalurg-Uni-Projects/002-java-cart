@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import src.cart.Cart;
 import src.coupon.Coupon;
+import src.coupon.Discount_30;
 import src.product.Product;
 
 import static org.junit.Assert.*;
@@ -18,18 +19,15 @@ public class Cart_Test {
     public void get_products_test(){
         cart.addProduct(new Product());
         Product[] result = cart.getProducts();
-        int expected = 1;
 
-        assertEquals("get products", result.length, expected);
+        assertEquals("get products", result.length, 1);
     }
 
     @Test
     public void get_coupon_test(){
-        String expected = "Promocja na masło";
-        cart.addCoupon(new Coupon(expected));
-        Coupon[] coupons = cart.getCoupons();
-        String result = coupons[0].getCode();
+        cart.addCoupon(new Discount_30());
+        Coupon[] result =  cart.getCoupons();
 
-        assertEquals("get coupon", result, expected);
+        assertEquals("get coupon", result.length, 1);
     }
 }
