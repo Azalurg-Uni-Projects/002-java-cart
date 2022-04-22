@@ -17,7 +17,10 @@ public class Cart {
     }
 
     private void calculate(){
-
+        this.cartValue = 0;
+        for(Coupon coupon : coupons){
+           coupon.apply(this);
+        }
     }
 
     public void addProduct(Product p){
