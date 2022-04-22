@@ -3,6 +3,7 @@ package src.test;
 
 import src.cart.Cart;
 import src.coupon.Discount_30;
+import src.coupon.Free_cup_absolut;
 import src.product.Product;
 
 import org.junit.Before;
@@ -28,5 +29,13 @@ public class Coupon_Test {
         double expected = cart.getProductsValue() * 0.7;
 
         assertEquals("Discount 30%", cart.getCartValue(), expected, 2);
+    }
+
+    @Test
+    public void free_cup_absolut_test(){
+        cart.addCoupon(new Free_cup_absolut());
+        int expected = 6;
+
+        assertEquals("Free cup absolut", cart.getProducts().length, expected);
     }
 }
