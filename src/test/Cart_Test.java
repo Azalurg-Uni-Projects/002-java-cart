@@ -2,6 +2,7 @@ package src.test;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import src.cart.Cart;
 import src.coupon.Coupon;
 import src.coupon.Discount_30;
@@ -29,5 +30,14 @@ public class Cart_Test {
         Coupon[] result =  cart.getCoupons();
 
         assertEquals("get coupon", result.length, 1);
+    }
+
+    @Test
+    public void get_all_products_value(){
+        cart.addProduct(new Product("101", "mleko", 10));
+        cart.addProduct(new Product("102", "kawa", 70));
+        double result = cart.getProductsValue();
+
+        assertEquals("get all products value", result, 80, 1);
     }
 }

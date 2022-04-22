@@ -9,7 +9,7 @@ public class Cart {
     private Product[] products;
     private Coupon[] coupons;
     private double cartValue;
-    private double itemsValue;
+    private double productsValue;
 
     public Cart(){
         this.products = new Product[0];
@@ -27,6 +27,7 @@ public class Cart {
         }
         products = newList;
         products[products.length-1] = p;
+        this.productsValue = this.productsValue + p.getPrice();
         calculate();
     }
 
