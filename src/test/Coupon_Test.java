@@ -2,7 +2,7 @@ package src.test;
 
 
 import src.cart.Cart;
-import src.coupon.Discount_30;
+import src.coupon.Discount_5;
 import src.coupon.Free_cup_absolut;
 import src.coupon.Free_cup_relative;
 import src.product.Product;
@@ -25,9 +25,9 @@ public class Coupon_Test {
     }
 
     @Test
-    public void discount_30_test(){
-        cart.addCoupon(new Discount_30());
-        double expected = cart.getProductsValue() * 0.7;
+    public void discount_5_test(){
+        cart.addCoupon(new Discount_5());
+        double expected = cart.getProductsValue() * 0.95;
 
         assertEquals("Discount 30%", cart.getCartValue(), expected, 2);
     }

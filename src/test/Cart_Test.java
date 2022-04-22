@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import src.cart.Cart;
 import src.coupon.Coupon;
-import src.coupon.Discount_30;
+import src.coupon.Discount_5;
 import src.product.Product;
 
 import static org.junit.Assert.*;
@@ -26,7 +26,7 @@ public class Cart_Test {
 
     @Test
     public void get_coupon_test(){
-        cart.addCoupon(new Discount_30());
+        cart.addCoupon(new Discount_5());
         Coupon[] result =  cart.getCoupons();
 
         assertEquals("get coupon", result.length, 1);
