@@ -4,6 +4,7 @@ package src.test;
 import src.cart.Cart;
 import src.coupon.Discount_30;
 import src.coupon.Free_cup_absolut;
+import src.coupon.Free_cup_relative;
 import src.product.Product;
 
 import org.junit.Before;
@@ -37,5 +38,13 @@ public class Coupon_Test {
         int expected = 6;
 
         assertEquals("Free cup absolut", cart.getProducts().length, expected);
+    }
+
+    @Test
+    public void free_cup_relative_test(){
+        cart.addCoupon(new Free_cup_relative());
+        int expected = 6;
+
+        assertEquals("Free cup relative", cart.getProducts().length, expected);
     }
 }
