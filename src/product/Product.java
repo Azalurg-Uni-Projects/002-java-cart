@@ -16,6 +16,7 @@ public class Product {
         this.code = code;
         this.name = name;
         this.price = price;
+        this.discountPrice = price;
     }
 
 }

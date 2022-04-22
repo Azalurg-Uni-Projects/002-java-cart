@@ -10,8 +10,7 @@ public class Discount_30 implements Coupon{
         Product[] products = cart.getProducts();
         cart.setCartValue(0);
         for (Product product : products) {
-            product.setDiscountPrice(product.getPrice() * 0.70);
-            cart.setCartValue(cart.getCartValue() + product.getDiscountPrice());
+            product.setDiscountPrice(product.getDiscountPrice() * 0.70);
         }
     }
 }

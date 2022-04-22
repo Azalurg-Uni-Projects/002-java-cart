@@ -18,8 +18,11 @@ public class Cart {
 
     private void calculate(){
         this.cartValue = 0;
-        for(Coupon coupon : coupons){
-           coupon.apply(this);
+        for(Coupon coupon : coupons) {
+            coupon.apply(this);
+        }
+        for (Product product : products) {
+            setCartValue(getCartValue() + product.getDiscountPrice());
         }
     }
 
