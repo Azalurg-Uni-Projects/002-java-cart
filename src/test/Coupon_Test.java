@@ -5,6 +5,7 @@ import src.cart.Cart;
 import src.coupon.Discount_5;
 import src.coupon.Free_cup_absolut;
 import src.coupon.Free_cup_relative;
+import src.coupon.Third_free;
 import src.product.Product;
 
 import org.junit.Before;
@@ -46,5 +47,13 @@ public class Coupon_Test {
         int expected = 6;
 
         assertEquals("Free cup relative", cart.getProducts().length, expected);
+    }
+
+    @Test
+    public void third_free_test(){
+        cart.addCoupon(new Third_free());
+        double expected = 9154;
+
+        assertEquals("Third free", cart.getCartValue(), expected, 1);
     }
 }
