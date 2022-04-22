@@ -4,8 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import src.cart.Cart;
-import src.coupon.Coupon;
-import src.coupon.Discount_5;
+import src.coupon.*;
 import src.product.Product;
 
 import static org.junit.Assert.*;
@@ -39,5 +38,25 @@ public class Cart_Test {
         double result = cart.getProductsValue();
 
         assertEquals("get all products value", result, 80, 1);
+    }
+
+    @Test
+    public void great_cart_test(){
+        cart.addProduct(new Product("1", "backpack", 100));
+        cart.addProduct(new Product("2", "bag", 50));
+        cart.addCoupon(new Discount_5());
+        cart.addProduct(new Product("3", "pocket", 11));
+        cart.addCoupon(new Third_free());
+        if(cart.getCartValue() < 160){
+            cart.addCoupon(new Amazon_30());
+        }
+        cart.addProduct(new Product("4", "Amazon", 500));
+        if(cart.getCartValue() < 600){
+            cart.addCoupon(new Free_cup_relative());
+        }
+        cart.addCoupon(new Free_cup_absolut());
+
+        assertEquals("Great test x_x", 6, cart.getProducts().length);
+
     }
 }
