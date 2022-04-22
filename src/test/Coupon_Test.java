@@ -2,10 +2,7 @@ package src.test;
 
 
 import src.cart.Cart;
-import src.coupon.Discount_5;
-import src.coupon.Free_cup_absolut;
-import src.coupon.Free_cup_relative;
-import src.coupon.Third_free;
+import src.coupon.*;
 import src.product.Product;
 
 import org.junit.Before;
@@ -53,6 +50,14 @@ public class Coupon_Test {
     public void third_free_test(){
         cart.addCoupon(new Third_free());
         double expected = 9154;
+
+        assertEquals("Third free", cart.getCartValue(), expected, 1);
+    }
+
+    @Test
+    public void amazon_30_test(){
+        cart.addCoupon(new Amazon_30());
+        double expected = 9839.6;
 
         assertEquals("Third free", cart.getCartValue(), expected, 1);
     }
