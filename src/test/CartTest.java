@@ -87,4 +87,22 @@ public class CartTest {
         // c: 100, b: 100, a: 100, c: 50, b: 50, a: 50
         assertEquals("sorting test", "c: 100.0", cart.getProductsNames().get(0));
     }
+
+    @Test
+    public void find_cheapest_test(){
+        cart.addProduct(new Product("1", "a", 50));
+        cart.addProduct(new Product("2", "b", 100));
+        cart.addProduct(new Product("3", "c", 25));
+        Product result = cart.findCheapest();
+        assertEquals("find cheapest","c", result.getName());
+    }
+    
+    @Test
+    public void find_expensive_test(){
+        cart.addProduct(new Product("1", "a", 50));
+        cart.addProduct(new Product("2", "b", 100));
+        cart.addProduct(new Product("3", "c", 25));
+        Product result = cart.findCheapest();
+        assertEquals("find cheapest","b", result.getName());
+    }
 }

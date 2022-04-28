@@ -3,11 +3,9 @@ package src.cart;
 import lombok.Getter;
 import src.coupon.Coupon;
 import src.product.Product;
-import src.sort.Name;
 import src.sort.PriceName;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -73,4 +71,24 @@ public class Cart {
         }
         return result;
     }
+    
+    public Product findCheapest(){
+        List<Product> list = products
+                .stream()
+                .sorted(Comparator.comparing(Product::getPrice))
+                .toList();
+        return list.get(0);
+    }
 }
+
+    public Product findMostExpensive(){
+        List<Product> list = products
+                .stream()
+                .sorted(Comparator
+                        .comparing(Product::getPrice)
+                        .reversed())
+                .toList();
+        return list.get(0);
+    }
+}
+
