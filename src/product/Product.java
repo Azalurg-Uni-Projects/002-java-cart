@@ -8,15 +8,22 @@ import lombok.Setter;
 public class Product {
     private String code;
     private String name;
-    private double price;
-    private double discountPrice;
+    private Double price;
+    private Double discountPrice;
 
-    public Product(){};
-    public Product(String code, String name, double price){
+    public Product(String code, String name, Double price){
         this.code = code;
         this.name = name;
         this.price = price;
         this.discountPrice = price;
     }
+
+    public Product(String code, String name, int price){
+        this.code = code;
+        this.name = name;
+        this.price = (double) price;
+        this.discountPrice = (double) price;
+    }
+
 
 }

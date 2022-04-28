@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class Coupon_Test {
+public class CouponTest {
     private Cart cart;
 
     @Before
@@ -35,7 +35,7 @@ public class Coupon_Test {
         cart.addCoupon(new Free_cup_absolut());
         int expected = 6;
 
-        assertEquals("Free cup absolut", cart.getProducts().length, expected);
+        assertEquals("Free cup absolut", cart.getProducts().size(), expected);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class Coupon_Test {
         cart.addCoupon(new Free_cup_relative());
         int expected = 6;
 
-        assertEquals("Free cup relative", cart.getProducts().length, expected);
+        assertEquals("Free cup relative", cart.getProducts().size(), expected);
     }
 
     @Test

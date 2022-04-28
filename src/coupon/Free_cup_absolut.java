@@ -3,12 +3,13 @@ package src.coupon;
 import src.cart.Cart;
 import src.product.Product;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Free_cup_absolut implements Coupon {
     @Override
     public void apply(Cart cart) {
-        Product[] products = cart.getProducts();
+        List<Product> products = cart.getProducts();
         boolean should_add = true;
 
         if (cart.getProductsValue() > 200){
