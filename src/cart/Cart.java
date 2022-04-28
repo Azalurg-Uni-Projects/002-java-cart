@@ -79,7 +79,7 @@ public class Cart {
                 .toList();
         return list.get(0);
     }
-}
+
 
     public Product findMostExpensive(){
         List<Product> list = products
@@ -90,5 +90,26 @@ public class Cart {
                 .toList();
         return list.get(0);
     }
+
+    public List<Product> findNCheapest(int n){
+        List<Product> list = products
+                .stream()
+                .sorted(Comparator.comparing(Product::getPrice))
+                .toList();
+        return list.subList(0, n);
+    }
+
+
+    public List<Product> findNMostExpensive(int n){
+        List<Product> list = products
+                .stream()
+                .sorted(Comparator
+                        .comparing(Product::getPrice)
+                        .reversed())
+                .toList();
+        return list.subList(0, n);
+    }
 }
+
+
 

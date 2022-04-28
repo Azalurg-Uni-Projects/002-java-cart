@@ -8,6 +8,7 @@ import src.coupon.*;
 import src.product.Product;
 import src.sort.PriceNameReverse;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -96,13 +97,42 @@ public class CartTest {
         Product result = cart.findCheapest();
         assertEquals("find cheapest","c", result.getName());
     }
-    
+
     @Test
     public void find_expensive_test(){
         cart.addProduct(new Product("1", "a", 50));
         cart.addProduct(new Product("2", "b", 100));
         cart.addProduct(new Product("3", "c", 25));
-        Product result = cart.findCheapest();
+        Product result = cart.findMostExpensive();
         assertEquals("find cheapest","b", result.getName());
     }
+
+    @Test
+    public void find_n_cheapest_test(){
+        cart.addProduct(new Product("1", "a", 50));
+        cart.addProduct(new Product("2", "b", 100));
+        cart.addProduct(new Product("3", "c", 25));
+        List<Product> result = cart.findNCheapest(2);
+        assertEquals("find cheapest","a", result.get(1).getName());
+    }
+
+    @Test
+    public void find__n_expensive_test(){
+        cart.addProduct(new Product("1", "a", 50));
+        cart.addProduct(new Product("2", "b", 100));
+        cart.addProduct(new Product("3", "c", 25));
+        List<Product> result = cart.findNMostExpensive(2);
+        assertEquals("find cheapest","a", result.get(1).getName());
+    }
+
+    @Test
+    public void check_all_products_value(){
+        cart.addProduct(new Product("1", "a", 150));
+        cart.addProduct(new Product("2", "b", 100));
+        cart.addProduct(new Product("3", "c", 250));
+        cart.addCoupon(new Discount_5());
+        double result = cart.getCartValue();
+        assertEquals("Check products value", result, 475.0, 1);
+    }
+
 }
