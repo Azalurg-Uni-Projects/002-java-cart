@@ -9,22 +9,23 @@ import java.util.Objects;
 public class Free_cup_absolut implements Coupon {
     @Override
     public void apply(Cart cart) {
+        cart.addProduct(new Product("666", "Red cup", 0));
+
+    }
+
+    @Override
+    public boolean canApply(Cart cart) {
         List<Product> products = cart.getProducts();
-        boolean should_add = true;
 
         if (cart.getProductsValue() > 200){
             for (Product product : products){
                 if (Objects.equals(product.getName(), "Red cup")) {
-                    should_add = false;
-                    break;
+                    return false;
                 }
             }
         }else{
-            should_add = false;
+            return false;
         }
-
-        if(should_add){
-            cart.addProduct(new Product("666", "Red cup", 0));
-        }
+        return true;
     }
 }

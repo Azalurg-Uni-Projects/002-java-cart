@@ -26,7 +26,9 @@ public class Cart {
     private void calculate(){
         this.cartValue = 0;
         for(Coupon coupon : coupons) {
-            coupon.apply(this);
+            if (coupon.canApply(this)){
+                coupon.apply(this);
+            }
         }
         for (Product product : products) {
             setCartValue(getCartValue() + product.getDiscountPrice());

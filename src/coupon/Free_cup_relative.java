@@ -33,4 +33,9 @@ public class Free_cup_relative implements Coupon {
             cart.addProduct(new Product("420", "Green cup", (double) 0));
         }
     }
+
+    @Override
+    public boolean canApply(Cart cart) {
+        return false;
+    }
 }
